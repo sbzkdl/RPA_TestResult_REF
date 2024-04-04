@@ -307,21 +307,11 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="438,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
-                            <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="TransactionItem" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격여부">
-                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt합격여부" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_list과목">
-                            <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="list과목" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt기준">
-                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt기준" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격여부">[dt합격여부]</InArgument>
+                          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_list과목">[list과목]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt기준">[dt기준]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <TryCatch DisplayName="Try Catch Set Transaction Status (Success)" sap:VirtualizedContainerService.HintSize="438,364" sap2010:WorkflowViewState.IdRef="TryCatch_10">
@@ -517,7 +507,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[SystemException IsNot Nothing]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="254,104" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="596,2227" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
                         <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="550,1808" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
@@ -735,12 +725,24 @@
                               </ui:CommentOut>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TransactionData">[dt_TransactionData]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt기준">[dt기준]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격여부">[dt합격여부]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격률">[dt합격률]</OutArgument>
-                                  <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_list과목">[list과목]</OutArgument>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                    <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                                  </InArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TransactionData">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionData" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt기준">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt기준" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격여부">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt합격여부" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격률">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt합격률" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_list과목">
+                                    <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="list과목" />
+                                  </OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -813,7 +815,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="500,900" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,120" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
                                 <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="454,755" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -831,31 +833,17 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\03_PassRate.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Jobs\03_PassRate.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_list과목">
-                                            <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="list과목" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionData" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격여부">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt합격여부" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격률">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt합격률" />
-                                          </InArgument>
+                                          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_list과목">[list과목]</InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">[dt_TransactionData]</InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격여부">[dt합격여부]</InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격률">[dt합격률]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\04_WriteDT.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Jobs\04_WriteData.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격여부">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt합격여부" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격률">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt합격률" />
-                                          </InArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격여부">[dt합격여부]</InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt합격률">[dt합격률]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">

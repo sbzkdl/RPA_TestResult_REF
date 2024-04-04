@@ -110,24 +110,12 @@
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="354,181" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Jobs\01_ReadData.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Jobs\01_ReadData.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt점수">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_TransactionData" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt기준">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt기준" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격여부">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt합격여부" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격률">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt합격률" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_list과목">
-          <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="out_list과목" />
-        </OutArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt점수">[out_dt_TransactionData]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt기준">[out_dt기준]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격여부">[out_dt합격여부]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt합격률">[out_dt합격률]</OutArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_list과목">[out_list과목]</OutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
